@@ -39,7 +39,7 @@
         bottom
         right
         :value="updateExists"
-        :timeout="0"
+        :timeout="-1"
         color="primary"
       >
         An update is available
