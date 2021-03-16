@@ -1,5 +1,5 @@
 // Implementing pusher beams ref: https://pusher.com/docs/beams/getting-started/web/sdk-integration
-importScripts("https://js.pusher.com/beams/service-worker.js");
+// importScripts("https://js.pusher.com/beams/service-worker.js");
 
 
 // If you are using 'GenerateSW' (default) for your workboxPluginMode setting this file is auto generated for you.

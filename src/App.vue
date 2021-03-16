@@ -54,7 +54,7 @@
 
 import HelloWorld from "./components/HelloWorld";
 import update from "./mixins/update";
-import * as PusherPushNotifications from "@pusher/push-notifications-web";
+
 
 export default {
   name: "App",
@@ -66,18 +66,5 @@ export default {
     //
   }),
   mixins: [update],
-  beforeMount() {
-    const beamsClient = new PusherPushNotifications.Client({
-      instanceId: "84201ff3-b8ff-4066-abf8-4610114173c3",
-    });
-
-    beamsClient
-      .start()
-      .then((beamsClient) => beamsClient.getDeviceId())
-      .then((deviceId) =>
-        console.log("Successfully registered with Beams. Device ID:", deviceId)
-      )
-      .catch(console.error);
-  },
 };
 </script>
