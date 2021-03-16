@@ -2,11 +2,11 @@ module.exports = {
   transpileDependencies: [
     'vuetify'
   ],
+  publicPath: '/vuejs-pwa-push/',
   pwa: {
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      swSrc: 'public/service-worker.js',
-    },
-    publicPath: '/vuejs-pwa-push/'
+      swSrc: 'service-worker.js',
+    }
   }
 }
