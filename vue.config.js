@@ -6,6 +6,7 @@ module.exports = {
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: 'public/service-worker.js',
-    }
+    },
+    publicPath: '/vuejs-pwa-push/'
   }
 }
