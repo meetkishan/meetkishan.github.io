@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import './registerServiceWorker'
-import * as firebase from "firebase";
+import firebase from "firebase";
 
 var config = {
   apiKey: "AIzaSyCZ96GQZonhNAxFYf6D1467O2lSgr7uess",
