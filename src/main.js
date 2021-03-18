@@ -3,7 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import './registerServiceWorker'
 import firebase from "firebase";
-
+// import aa from './assets/firebase-messaging-sw.js'
 var config = {
   apiKey: "AIzaSyCZ96GQZonhNAxFYf6D1467O2lSgr7uess",
   authDomain: "trydemo-notification-2021.firebaseapp.com",
@@ -16,8 +16,26 @@ const app = firebase.initializeApp(config);
 console.log(app)
 const messaging = firebase.messaging();
 
+navigator.serviceWorker.register('./assets/firebase-messaging-sw.js')
+.then((registration) => {
+  messaging.useServiceWorker(registration);
+
+  // Request permission and get token.....
+});
+
 messaging.usePublicVapidKey("BJpa5BUXJgyM_7c0YwagVRI1to8IH1xY3xcAPB-26LnnDTeG_B1VeF88wrzAJIZQarnZa3ek51FHC39HWqsiByU"); // 1. Generate a new key pair
-console.log(messaging.getToken({vapidKey: "BJpa5BUXJgyM_7c0YwagVRI1to8IH1xY3xcAPB-26LnnDTeG_B1VeF88wrzAJIZQarnZa3ek51FHC39HWqsiByU"}));
+
+messaging.getToken({ vapidKey: 'BJpa5BUXJgyM_7c0YwagVRI1to8IH1xY3xcAPB-26LnnDTeG_B1VeF88wrzAJIZQarnZa3ek51FHC39HWqsiByU' }).then((currentToken) => {
+  console.log(currentToken)
+  if (currentToken) {
+
+  } else {
+    console.log('No registration token available. Request permission to generate one.');
+  }
+}).catch((err) => {
+  console.log('An error occurred while retrieving token. ', err);
+  // ...
+});
 
 // Request Permission of Notifications
 messaging.requestPermission().then(() => {
@@ -40,7 +58,8 @@ new Vue({
 
 // ---------------------
 // curl -X POST -H "Authorization: key=${AAAAH-anOf4:APA91bGM6hUZl2fSAJ6RcukOSB8pDOXNmk_9PW50DDj7RlnQpmIECjowgX_oKSo2aiEZNISYAfgp8UQm1avzDJnu3US6JoGk__aGltbOhZmNIjHwSK-QjVmc3t8RvrfYnylWytDHBn6O}" -H "Content-Type: application/json" -d '{
-//   "to": "${1:137013705214:web:797bb6b61709cc95e328af}",
+//   "to": "${eNHkNGOcZ4p62M1oWPZXBJ:APA91bFepZq6iHvAbftwtFUF1eo32jcKrwsizp_3B2zpyQphqRmK9rxK8FlRhnFw9xC5kgtsGgKPeJlYqfMCvCooCI28vVQSXPbbGCsXj78DXwqNsStRkN078yWFLo0S8aF9YrjJ_M4-
+//   }",
 //   "notification": {
 //     "title": "FCM Message",
 //     "body": "This is an FCM Message",
