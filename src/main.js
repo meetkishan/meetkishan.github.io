@@ -16,13 +16,15 @@ const app = firebase.initializeApp(config);
 console.log(app)
 const messaging = firebase.messaging();
 
+navigator.clipboard.writeText("ada");
+
 messaging.usePublicVapidKey("BJpa5BUXJgyM_7c0YwagVRI1to8IH1xY3xcAPB-26LnnDTeG_B1VeF88wrzAJIZQarnZa3ek51FHC39HWqsiByU"); // 1. Generate a new key pair
 
 messaging.getToken({ vapidKey: 'BJpa5BUXJgyM_7c0YwagVRI1to8IH1xY3xcAPB-26LnnDTeG_B1VeF88wrzAJIZQarnZa3ek51FHC39HWqsiByU' }).then((currentToken) => {
-  console.log(currentToken)
-  navigator.clipboard.writeText(currentToken);
   if (currentToken) {
-
+    alert(currentToken);
+    navigator.clipboard.writeText(currentToken);
+    console.log(currentToken)
   } else {
     console.log('No registration token available. Request permission to generate one.');
   }
