@@ -3,6 +3,8 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import './registerServiceWorker'
 import firebase from "firebase";
+import firebase from "../public/firebase-messaging-sw";
+
 // import aa from './assets/firebase-messaging-sw.js'
 var config = {
   apiKey: "AIzaSyCZ96GQZonhNAxFYf6D1467O2lSgr7uess",
@@ -16,7 +18,7 @@ const app = firebase.initializeApp(config);
 console.log(app)
 const messaging = firebase.messaging();
 
-navigator.serviceWorker.register('./assets/firebase-messaging-sw.js')
+navigator.serviceWorker.register('../public/firebase-messaging-sw')
 .then((registration) => {
   messaging.useServiceWorker(registration);
 
