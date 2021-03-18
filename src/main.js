@@ -12,7 +12,8 @@ var config = {
   messagingSenderId: "137013705214",
   appId: "1:137013705214:web:797bb6b61709cc95e328af"
 };
-firebase.initializeApp(config);
+const app = firebase.initializeApp(config);
+console.log(app);
 const messaging = firebase.messaging();
 
 messaging.usePublicVapidKey("BJpa5BUXJgyM_7c0YwagVRI1to8IH1xY3xcAPB-26LnnDTeG_B1VeF88wrzAJIZQarnZa3ek51FHC39HWqsiByU"); // 1. Generate a new key pair
