@@ -45,22 +45,6 @@ messaging.requestPermission().then(() => {
   console.log('Unable to get permission to notify.', err);
 });
 Vue.config.productionTip = false
-
-// -----------------------------
-
-const fs = require('fs') 
-  
-// Data which will write in a file. 
-let data = "Learning how to write in a file."
-  
-// Write data in 'Output.txt' . 
-fs.writeFile('Output.txt', data, (err) => { 
-      
-    // In case of a error throw err. 
-    if (err) throw err; 
-}) 
-
-// ------------------------------------
 new Vue({
   vuetify,
   render: h => h(App)
