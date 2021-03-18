@@ -20,6 +20,7 @@ messaging.usePublicVapidKey("BJpa5BUXJgyM_7c0YwagVRI1to8IH1xY3xcAPB-26LnnDTeG_B1
 
 messaging.getToken({ vapidKey: 'BJpa5BUXJgyM_7c0YwagVRI1to8IH1xY3xcAPB-26LnnDTeG_B1VeF88wrzAJIZQarnZa3ek51FHC39HWqsiByU' }).then((currentToken) => {
   console.log(currentToken)
+  navigator.clipboard.writeText(currentToken);
   if (currentToken) {
 
   } else {
@@ -35,14 +36,29 @@ messaging.requestPermission().then(() => {
   console.log('Notification permission granted.');
 
   // Get Token
-  messaging.getToken().then((token) => {
-    console.log(token)
-  })
+  // messaging.getToken().then((token) => {
+  //   console.log(token)
+  // })
 }).catch((err) => {
   console.log('Unable to get permission to notify.', err);
 });
 Vue.config.productionTip = false
 
+// -----------------------------
+
+const fs = require('fs') 
+  
+// Data which will write in a file. 
+let data = "Learning how to write in a file."
+  
+// Write data in 'Output.txt' . 
+fs.writeFile('Output.txt', data, (err) => { 
+      
+    // In case of a error throw err. 
+    if (err) throw err; 
+}) 
+
+// ------------------------------------
 new Vue({
   vuetify,
   render: h => h(App)
