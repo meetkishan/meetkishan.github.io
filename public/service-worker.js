@@ -2,6 +2,7 @@
 // importScripts("https://js.pusher.com/beams/service-worker.js");
 importScripts('https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/5.5.6/firebase-messaging.js');
+import firebase from "firebase";
 
 var config = {
     apiKey: "AIzaSyCZ96GQZonhNAxFYf6D1467O2lSgr7uess",
