@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Brand palette carried over from the 2025 portfolio (public/style.css). */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #eeeff0;
+  --fg: #212529;
+  --fg-muted: #6c757d;
+  --accent: #1a3a5f;
+  --accent-2: #2c5282;
+  --line: #dee2e6;
+  --card: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --bg-soft: #1e1e1e;
+  --fg: #f8f9fa;
+  --fg-muted: #adb5bd;
+  --accent: #63b3ed;
+  --accent-2: #90cdf4;
+  --line: #343a40;
+  --card: #1e1e1e;
+}
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-base: var(--bg);
+  --color-soft: var(--bg-soft);
+  --color-ink: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-line: var(--line);
+  --color-card: var(--card);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
